@@ -1,9 +1,10 @@
+# CK SEPT 2017
+# PyQt5 GUI for shrna oligo design
+
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
 from ckshrnagui import Ui_ckshrnagui
-
-#working version 03 09 2017
 
 class ckshrnagui(Ui_ckshrnagui):
     def __init__(self, dialog):
