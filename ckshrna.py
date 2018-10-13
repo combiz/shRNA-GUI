@@ -109,6 +109,9 @@ class ckshrnagui(Ui_ckshrnagui):
     def beginOligoDesign(self):       
         # retrieve the target shRNA sequence from user input
         shRNA_sense = self.inputSequence.text().upper()
+        if len(shRNA_sense) < 19:
+            self.inputSequence.setText("Error: too short.")
+            return
 
         # generate the oligos for the given target
         myConstruct = OligoConstruct(shRNA_sense)
