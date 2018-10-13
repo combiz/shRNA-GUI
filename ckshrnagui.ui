@@ -6,12 +6,30 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1583</width>
-    <height>507</height>
+    <width>1240</width>
+    <height>400</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1240</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1240</width>
+    <height>400</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>shRNA Oligo Design Tool</string>
+   <string>shRNA Oligo Design Tool (by Combiz Khozoie, Ph.D.)</string>
   </property>
   <property name="styleSheet">
    <string notr="true">
@@ -374,27 +392,14 @@ QFrame#main_frame {
 }
 </string>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>471</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
   <widget class="QPushButton" name="generateOligosBtn">
    <property name="geometry">
     <rect>
-     <x>1380</x>
-     <y>30</y>
+     <x>1130</x>
+     <y>20</y>
      <width>91</width>
      <height>41</height>
     </rect>
@@ -411,9 +416,9 @@ QFrame#main_frame {
   <widget class="QLineEdit" name="inputSequence">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>30</y>
-     <width>611</width>
+     <x>20</x>
+     <y>20</y>
+     <width>1031</width>
      <height>41</height>
     </rect>
    </property>
@@ -430,21 +435,24 @@ QFrame#main_frame {
     <string/>
    </property>
    <property name="text">
-    <string>AGGTCAAGGTCAAGGTCAAGGTCA</string>
+    <string>AGGTCAAGGTCAAGGTCAAGGTCAGGGGG</string>
    </property>
    <property name="maxLength">
     <number>29</number>
    </property>
    <property name="placeholderText">
-    <string>Enter stem sequence here...</string>
+    <string>Enter shRNA stem sequence here...</string>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>100</y>
-     <width>1421</width>
+     <x>20</x>
+     <y>80</y>
+     <width>1201</width>
      <height>95</height>
     </rect>
    </property>
@@ -457,17 +465,17 @@ QFrame#main_frame {
       <property name="font">
        <font>
         <family>Courier New</family>
-        <pointsize>18</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 18pt &quot;Courier New&quot;;</string>
+       <string notr="true">font: 14pt &quot;Courier New&quot;;</string>
       </property>
       <property name="text">
-       <string>testttttttttttttttt</string>
+       <string>shRNA     sense 5'- ccggAGGTCAAGGTCAAGGTCAAGGTCAGGGGGctcgagCCCCCTGACCTTGACCTTGACCTTGACCTtttttg     -3'</string>
       </property>
       <property name="textInteractionFlags">
        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -479,17 +487,17 @@ QFrame#main_frame {
       <property name="font">
        <font>
         <family>Courier New</family>
-        <pointsize>18</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 18pt &quot;Courier New&quot;;</string>
+       <string notr="true">font: 14pt &quot;Courier New&quot;;</string>
       </property>
       <property name="text">
-       <string>testttttttttttttttt</string>
+       <string>                        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</string>
       </property>
       <property name="textInteractionFlags">
        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -501,17 +509,17 @@ QFrame#main_frame {
       <property name="font">
        <font>
         <family>Courier New</family>
-        <pointsize>18</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 18pt &quot;Courier New&quot;;</string>
+       <string notr="true">font: 14pt &quot;Courier New&quot;;</string>
       </property>
       <property name="text">
-       <string>testttttttttttttttt</string>
+       <string>shRNA antisense 3'-     TCCAGTTCCAGTTCCAGTTCCAGTCCCCCgagctcGGGGGACTGGAACTGGAACTGGAACTGGAaaaaacttaa -5'</string>
       </property>
       <property name="textInteractionFlags">
        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -523,39 +531,48 @@ QFrame#main_frame {
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>230</y>
-     <width>1421</width>
-     <height>192</height>
+     <x>20</x>
+     <y>190</y>
+     <width>1200</width>
+     <height>190</height>
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
    <property name="rowCount">
     <number>0</number>
    </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>580</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>300</number>
+   </attribute>
    <column>
     <property name="text">
-     <string>Sense</string>
+     <string>Sense (5'-&gt;3')</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>Anti-sense</string>
+     <string>Anti-sense (5'-&gt;3')</string>
     </property>
    </column>
   </widget>
   <widget class="QPushButton" name="undoBtn">
    <property name="geometry">
     <rect>
-     <x>1400</x>
-     <y>430</y>
-     <width>71</width>
-     <height>31</height>
+     <x>1070</x>
+     <y>40</y>
+     <width>51</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -569,38 +586,5 @@ QFrame#main_frame {
   </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>ckshrnagui</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>ckshrnagui</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

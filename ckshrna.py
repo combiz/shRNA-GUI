@@ -6,6 +6,8 @@
 
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
 from ckshrnagui import Ui_ckshrnagui
 
@@ -85,18 +87,18 @@ class ckshrnagui(Ui_ckshrnagui):
         # Connect "add" button with a custom function (addInputTextToListbox)
         self.generateOligosBtn.clicked.connect(self.beginOligoDesign)
 
+        # restrict user input to nucleotides only
+        reg_ex = QRegExp("[agtcAGTC_]+")
+        input_validator = QRegExpValidator(reg_ex, self.inputSequence)
+        self.inputSequence.setValidator(input_validator)
+
         # Connect 'undo' button with a custom function (undoLastOligo)
         self.undoBtn.clicked.connect(self.undoLastOligo)
-
-        # auto resize columns to fit contents
-        self.tableWidget.setFixedWidth(1130)
-        header = self.tableWidget.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
 
         # initialize text labels with instructions
         self.senseLabel.setText("Instructions: (1) Enter your 19-29bp shRNA target sequence above.")
         self.bondsLabel.setText("              (2) Press 'Go' to generate oligonucleotides for cloning.")
-        self.antisenseLabel.setText("(Combiz Khozoie, Ph.D.)")
+        self.antisenseLabel.setText("")
 
 
     def undoLastOligo(self):
