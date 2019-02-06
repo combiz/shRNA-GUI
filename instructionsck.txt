@@ -1,7 +1,0 @@
-to compile for windows, use the following line:
-
-pyinstaller --hidden-import PyQt5.sip ckshrna.py
-
-or even better 
-
-pyinstaller --hidden-import PyQt5.sip --onefile ckshrna.py

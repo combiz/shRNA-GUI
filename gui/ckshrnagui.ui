@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ckshrnagui</class>
+ <widget class="QDialog" name="ckshrnagui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1240</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1240</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1240</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>shRNA Oligo Design Tool (by Combiz Khozoie, Ph.D.)</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+#mainView, #calibration_tab, #mask_tab, #integration_tab {
+     background: #3C3C3C;
+	border: 5px solid #3C3C3C;
+ }
+
+QTabWidget::tab-bar{
+	alignment: center;
+}
+
+QTabWidget::pane {
+  border:  1px solid #2F2F2F;
+  border-radius: 3px;
+}
+
+QWidget{
+	color: #F1F1F1;
+}
+
+
+QTabBar::tab:left, QTabBar::tab:right {
+     background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #3C3C3C, stop:1 #505050);
+     border: 1px solid  #5B5B5B;
+	font: normal 14px;
+	color: #F1F1F1;
+     border-radius:2px;
+
+    padding: 0px;
+     width: 20px;
+    min-height:140px;
+ }
+
+
+QTabBar::tab::top, QTabBar::tab::bottom {
+     background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #3C3C3C, stop:1 #505050);
+     border: 1px solid  #5B5B5B;
+	border-right: 0px solid white;
+	  color: #F1F1F1;
+    font: normal 11px;
+     border-radius:2px;
+     min-width: 65px;
+    height: 19px;
+    padding: 0px;
+     margin-top: 1px ;
+	margin-right: 1px;
+ }
+QTabBar::tab::left:last, QTabBar::tab::right:last{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+QTabBar::tab:left:first, QTabBar::tab:right:first{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+QTabWidget, QTabWidget::tab-bar,  QTabWidget::panel, QWidget{
+     background: #3C3C3C;
+ }
+
+QTabWidget::tab-bar {
+	alignment: center;
+}
+
+ QTabBar::tab:hover {
+     border: 1px solid #ADADAD;
+ }
+
+ QTabBar:tab:selected{
+
+	background: qlineargradient(
+        x1: 0, y1: 1,
+        x2: 0, y2: 0,
+        stop: 0 #727272,
+        stop: 1 #444444
+    );
+     border:1px solid  rgb(255, 120,00);/*#ADADAD; */
+}
+
+QTabBar::tab:bottom:last, QTabBar::tab:top:last{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+QTabBar::tab:bottom:first, QTabBar::tab:top:first{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+ QTabBar::tab:top:!selected {
+    margin-top: 1px;
+    padding-top:1px;
+ }
+QTabBar::tab:bottom:!selected{
+	margin-bottom: 1px;
+    padding-bottom:1px;
+}
+
+QGraphicsView {
+	border-style: none;
+}
+
+ QLabel , QCheckBox, QGroupBox, QRadioButton, QListWidget::item, QPushButton, QToolBox::tab, QSpinBox, QDoubleSpinBox , QComboBox{
+     color: #F1F1F1;
+    font-size: 12px;
+ }
+ QCheckBox{
+     border-radius: 5px;
+ }
+ QRadioButton, QCheckBox {
+     font-weight: normal;
+	height: 15px;
+ }
+
+ QLineEdit  {
+     border-radius: 2px;
+     background: #F1F1F1;
+     color: black;
+	height: 18 px;
+ }
+
+QLineEdit::focus{
+	border-style: none;
+     border-radius: 2px;
+     background: #F1F1F1;
+     color: black;
+}
+
+QLineEdit:disabled, QSpinBox:disabled, QDoubleSpinBox:disabled{
+	color:rgb(148, 148, 148)
+}
+QSpinBox, QDoubleSpinBox {
+	background-color:  #F1F1F1;
+	color: black;
+	/*margin-left: -15px;
+	margin-right: -2px;*/
+}
+
+QComboBox QAbstractItemView{
+	background: #2D2D30;
+	color: #F1F1F1;
+	selection-background-color: rgba(221, 124, 40, 120);
+	border-radius: 5px;
+	min-height: 40px;
+
+}
+
+QComboBox QAbstractItemView:QScrollbar::vertical {
+    width:100px;
+}
+
+QComboBox:!editable {
+    margin-left: 1px;
+    padding: 0px 10px 0px 10px;
+    height: 23px;
+    background-color: #3C3C3C;
+}
+
+QComboBox::item{
+    background-color: #3C3C3C;
+}
+
+QComboBox::item::selected {
+    background-color: #505050;
+}
+QToolBox::tab:QToolButton{
+    background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #3C3C3C, stop:1 #505050);
+     border: 1px solid  #5B5B5B;
+
+     border-radius:2px;
+     padding-right: 10px;
+
+      color: #F1F1F1;
+    font-size: 12px;
+    padding: 3px;
+}
+QToolBox::tab:QToolButton{
+    background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #3C3C3C, stop:1 #505050);
+     border: 1px solid  #5B5B5B;
+
+     border-radius:2px;
+     padding-right: 10px;
+
+      color: #F1F1F1;
+    font-size: 12px;
+    padding: 3px;
+}
+
+QPushButton{
+	 color: #F1F1F1;
+     background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #323232, stop:1 #505050);
+     border: 1px solid #5B5B5B;
+     border-radius: 5px;
+     padding-left: 8px;
+height: 18px;
+    padding-right: 8px;
+ }
+QPushButton:pressed{
+		margin-top: 2px;
+		margin-left: 2px;
+}
+QPushButton::disabled{
+}
+
+QPushButton::hover{
+     border:1px solid #ADADAD;
+ }
+
+
+QPushButton::checked{
+	background: qlineargradient(
+        x1: 0, y1: 1,
+        x2: 0, y2: 0,
+        stop: 0 #727272,
+        stop: 1 #444444
+    );
+     border:1px solid  rgb(255, 120,00);
+}
+
+QPushButton::focus {
+	outline: None;
+}
+ QGroupBox {
+     border: 1px solid #ADADAD;
+     border-radius: 4px;
+     margin-top: 7px;
+     padding: 0px
+ }
+ QGroupBox::title {
+      subcontrol-origin: margin;
+      left: 20px
+  }
+
+QSplitter::handle:hover {
+	background: #3C3C3C;
+ }
+
+
+QGraphicsView{
+	border-style: none;
+}
+
+QScrollBar:vertical {
+      border: 2px solid #3C3C3C;
+      background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #323232, stop:1 #505050);
+      width: 12px;
+      margin: 0px 0px 0px 0px;
+  }
+  QScrollBar::handle:vertical {
+      background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #969696, stop:1 #CACACA);
+	 border-radius: 3px;
+      min-height: 20px;
+	padding: 15px;
+  }
+  QScrollBar::add-line:vertical {
+      border: 0px solid grey;
+      height: 0px;
+  }
+
+  QScrollBar::sub-line:vertical {
+      border: 0px solid grey;
+      height: 0px;
+  }
+  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+      background: none;
+  }
+
+QScrollBar:horizontal {
+    border: 2px solid #3C3C3C;
+    background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #323232, stop:1 #505050);
+	height: 12 px;
+    margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:horizontal {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #969696, stop:1 #CACACA);
+   border-radius: 3px;
+    min-width: 20px;
+  padding: 15px;
+}
+QScrollBar::add-line:horizontal {
+    border: 0px solid grey;
+    height: 0px;
+}
+
+QScrollBar::sub-line:horizontal {
+    border: 0px solid grey;
+    height: 0px;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none;
+}
+
+
+
+QSplitterHandle:hover {}
+
+QSplitter::handle:vertical{
+	image: url(Views/UiFiles/images/vertical_splitter.png);
+	background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0.3 #3C3C3C,  stop:0.5 #505050,
+stop: 0.7 #3C3C3C);
+	height: 15px;
+}
+
+QSplitter::handle:vertical:pressed, QSplitter::handle:vertical:hover{
+	image: url(Views/UiFiles/images/vertical_splitter_pressed.png);
+	background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0.3 #3C3C3C,  stop:0.5 #5C5C5C,
+stop: 0.7 #3C3C3C);
+}
+
+QSplitter::handle:horizontal{
+	image: url(Views/UiFiles/images/horizontal_splitter.png);
+	background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0.3 #3C3C3C,  stop:0.5 #505050,
+stop: 0.7 #3C3C3C);
+	width: 15px;
+}
+
+QSplitter::handle:horizontal:pressed, QSplitter::handle:horizontal:hover{
+	image: url(Views/UiFiles/images/horizontal_splitter_pressed.png);
+	background: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0.3 #3C3C3C,  stop:0.5 #5C5C5C,
+stop: 0.7 #3C3C3C);
+}
+
+QSplitter::handle:hover {
+	background: #3C3C3C;
+}
+
+QHeaderView::section
+{
+	spacing: 10px;
+	color: #F1F1F1;
+     background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #323232, stop:1 #505050);
+	border: None;
+	font-size: 12px;
+}
+
+QTableWidget {
+	font-size: 12px;
+	text-align: center;
+}
+
+
+QFrame#main_frame {
+    color: #F1F1F1;
+    border: 1px solid #5B5B5B;
+    border-radius: 5px;
+}
+
+#calibration_mode_btn, #mask_mode_btn, #integration_mode_btn {
+    font: normal 12px;
+    border-radius: 1px;
+}
+
+#calibration_mode_btn {
+   border-top-right-radius:8px;
+   border-bottom-right-radius: 8px;
+}
+#integration_mode_btn {
+   border-top-left-radius:8px;
+   border-bottom-left-radius: 8px;
+}
+</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QPushButton" name="generateOligosBtn">
+   <property name="geometry">
+    <rect>
+     <x>1130</x>
+     <y>20</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Go!</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="inputSequence">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>1031</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Courier New</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+   <property name="text">
+    <string>AGGTCAAGGTCAAGGTCAAGGTCAGGGGG</string>
+   </property>
+   <property name="maxLength">
+    <number>29</number>
+   </property>
+   <property name="placeholderText">
+    <string>Enter shRNA stem sequence here...</string>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>1201</width>
+     <height>95</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="senseLabel">
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 14pt &quot;Courier New&quot;;</string>
+      </property>
+      <property name="text">
+       <string>shRNA     sense 5'- ccggAGGTCAAGGTCAAGGTCAAGGTCAGGGGGctcgagCCCCCTGACCTTGACCTTGACCTTGACCTtttttg     -3'</string>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="bondsLabel">
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 14pt &quot;Courier New&quot;;</string>
+      </property>
+      <property name="text">
+       <string>                        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</string>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="antisenseLabel">
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 14pt &quot;Courier New&quot;;</string>
+      </property>
+      <property name="text">
+       <string>shRNA antisense 3'-     TCCAGTTCCAGTTCCAGTTCCAGTCCCCCgagctcGGGGGACTGGAACTGGAACTGGAACTGGAaaaaacttaa -5'</string>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>1200</width>
+     <height>190</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>580</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>300</number>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Sense (5'-&gt;3')</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Anti-sense (5'-&gt;3')</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="undoBtn">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>40</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
